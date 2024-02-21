@@ -1,0 +1,66 @@
+    <style>
+body {
+     background-color: black; /* Establecer el fondo negro */
+      margin: 0;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* 100% del alto de la ventana */
+      background-image: url('/assets/img/vI.gif');
+      background-size: cover; /* Ajustar tamaño para cubrir el contenedor */
+      background-position: center; /* Centrar la imagen */
+    background-size: 15%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+.iframe-container {
+  position: relative;
+}
+
+.iframe-container iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 30px; 
+  right: 30px; 
+  z-index: 999;
+}
+    </style>
+
+<body>
+<div class="iframe-container">
+    <iframe id="myIframe"   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" src="" ></iframe>
+ <img src="https://apurofutbol.net/img/logojw.png" class="logo">
+</div>
+
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        var urlParam = getParameterByName('get');
+        var iframe = document.getElementById('myIframe');
+        iframe.src = urlParam;
+    </script>
+</body>

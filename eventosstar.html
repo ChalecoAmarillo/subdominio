@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-<title>Evento en vivo - A Puro Fútbol</title>
+<title>Star Plus en vivo - A Puro Fútbol</title>
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <script>
@@ -12,73 +12,32 @@
         });
     </script>
 
-
-
 <script type="text/javascript">
-    function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }
-
-    var id = getParameterByName('p');
-    var embed;
-
-    if (getParameterByName('embed')) {
-        embed = getParameterByName('embed');
-    } else {
-        if (getParameterByName('r')) {
-            embed = getParameterByName('r');
-        } else {
-            embed = false;
-        }
-    }
-
-    var urlorigin = embed ? atob(embed) : '';
-
-    var urlObj = new URL(urlorigin);
-
-    var partesDominio = urlObj.hostname.split('.');
-    var subdominio = partesDominio.length > 2 ? partesDominio.slice(0, -2).join('.') : '';
-    var dominio = partesDominio.slice(-2).join('.');
-    var page = urlObj.pathname + urlObj.search + urlObj.hash;
-
-    var http = "https://";
-
-    var dominioprincipal = "apurofutbol.net";
-
-    var urlgen;
-
-    if (dominio === "techflower.bio" || dominio === "librefutboltv.com" || dominio === "dearch.vin" || dominio === "derealfama.one" || dominio === "dumper-true.com" || dominio === "maindots.co" || dominio === "rusticotv.foundation" || dominio === "futbollibrehd.net" || dominio === "whitemouseapple.com" || dominio === "alwaysdomain01.online") {
-        urlgen = http + (subdominio ? subdominio + "." : "") + dominioprincipal + page;
-    } 
-else {
-    if (subdominio == "") {
-        urlgen = http + dominio + page;
-    } else {
-        urlgen = http + subdominio + "." + dominio + page;
-    }
-}
-</script>
-
-
-
-
-
-
-
-
-
-
-
+         function getParameterByName(name) {
+             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                 results = regex.exec(location.search);
+             return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+         }
+          id = getParameterByName('p');
+         if(getParameterByName('embed')){
+            embed = getParameterByName('embed');
+         }else{
+            if(getParameterByName('r')){
+                embed = getParameterByName('r');
+             }else{
+                embed = false;
+         }  
+         }
+         
+      </script>
 
  </head>
 <body>
 <div id="header"></div>
 	<script>
             $(document).ready(function() {
-                $("#header").load("https://apurofutbol.net/html/header.html"); 
+                $("#header").load("https://apurofutbol.net/html/header.html");
             });
          </script>
 
@@ -93,7 +52,7 @@ else {
 
                 <div class="embed-responsive embed-responsive-16by9" bis_skin_checked="1">
                     <script type="text/javascript">
-                    if (embed) {document.write('<iframe class="embed-responsive-item" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen src="'+urlgen+'" scrolling="no" frameBorder="0" allowfullscreen></iframe>');}
+                    if (embed) {document.write('<iframe class="embed-responsive-item" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen src="'+atob(embed)+'" scrolling="no" frameBorder="0" allowfullscreen></iframe>');}
                         </script>
                 </div>
 
@@ -117,6 +76,8 @@ else {
     // Asignar el valor del parámetro "id" al src del iframe en chat.html
     $("#miIframe").attr("src", "https://apurofutbol.net/chat/chatsmart.html?id=" + encodeURIComponent(videoId));
 </script>
+
+  
 
            </div>
         </div>
